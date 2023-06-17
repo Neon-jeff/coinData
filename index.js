@@ -1,5 +1,6 @@
 require('dotenv').config()
 const { default: axios } = require('axios')
+const PORT = process.env.PORT || 3030
 const express=require('express')
 const {coinData}=require('./scrapper')
 
@@ -12,6 +13,8 @@ app.get('/api/crypto-data',async (req,res)=>{
     )
 })
 
-app.listen(5050)
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
 
 
